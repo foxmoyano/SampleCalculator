@@ -28,6 +28,12 @@ module.exports = function(grunt) {
           dest: 'build/index.html'
         }
       },  
+      jshint: {
+        all: ['js/*.js'],
+        options: {
+          'esversion': 6,
+        }        
+      },      
       htmlmin: {
         dist: {
           options: {
@@ -46,10 +52,10 @@ module.exports = function(grunt) {
         }
       },
       uglify: {
-        js1: {
+        /*js1: {
           src: 'js/app.js',
           dest: 'build/app.min.js'
-        },
+        },*/
         js2: {
           src: 'bower_components/angular/angular.js',
           dest: 'build/angular.min.js'
@@ -60,7 +66,7 @@ module.exports = function(grunt) {
           separator: ';'
         },
         dist: {
-          src: ['build/angular.min.js', 'build/app.min.js'],
+          src: ['build/angular.min.js', 'app.min.js'],
           dest: `dist/app.full.${nombreDist}.min.js`
         }
       },
@@ -71,8 +77,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-dom-munger');    
   
-    grunt.registerTask('default', ['clean', 'cssmin', 'uglify', 'concat', 'dom_munger', 'htmlmin']);    
+    grunt.registerTask('default', ['jshint', 'clean', 'cssmin', 'uglify', 'concat', 'dom_munger', 'htmlmin']);    
   };
   
