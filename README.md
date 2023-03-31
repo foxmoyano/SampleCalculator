@@ -1,6 +1,6 @@
 # SampleCalculator
 
-Simple calculadora AngularJS y minificada con Grunt.
+Simple calculadora AngularJS y minificada con Grunt y UglifyJs.
 
 ## Instalación
 
@@ -20,24 +20,25 @@ Ahora descarguemos el ejemplo desde git
 git clone https://github.com/foxmoyano/SampleCalculator.git
 ```
 
-Entrar a la carpeta principal e instalar las dependencias del ejemplo
+Entrar a la carpeta principal e instalemos las dependencias del ejemplo
 ```
 npm i
 ```
 
 ## Ejecución
 
-La ejecución esta dividida en 2 partes, primero hacemos el empaquetado de los js y minificamos con **uglifyjs**
+La ejecución esta dividida en 2 partes, primero hacemos trabajemos los js minificandolos y uniendolos con **uglifyjs**
 
 ```
 uglifyjs js/angular.js js/app.js -o app.full.min.js
 ```
 
-La segunda parte se realiza con grunt, para lo cual solamente lo ejecutamos
+La segunda parte se realiza con grunt, que se encarga de minificar el html y los css y los deja en la carpeta dist.
+
+Para lo cual solamente lo ejecutamos, ya que toda la configuración esta en el archivo **Gruntfile.js**
 ```
 grunt
 ```
 
-Esto genera la carpeta dist con el html, css y js minificados.
 
 
